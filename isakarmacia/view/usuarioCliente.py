@@ -1,6 +1,6 @@
 from isakarmacia.controller.clienteController import ClienteController
 
-def menu_cadastro_cliente():
+def menu_usuario():
     cliente_controller = ClienteController()
 
     print("Bem-Vindo a Área de usuário!")
@@ -15,7 +15,6 @@ def menu_cadastro_cliente():
             nome = input("Nome: ")
             cpf = input("CPF: ")
             telefone = input("Telefone: ")
-            endereco = input("Endereço: ")
             print(cliente_controller.cadastrar_cliente(nome, cpf, telefone))
 
         elif opcao == "2":
