@@ -32,3 +32,11 @@ class ClienteController:
             if cliente.cpf == cpf:
                 return cliente.exibir_dados()
         return "Cliente não encontrado."
+
+    def deletar_cliente(self, cpf):
+        for cliente in self.clientes:
+            if cliente.cpf == cpf:
+                self.clientes.remove(cliente)
+                self.salvar_dados()
+                return f"Cliente com CPF {cpf} deletado com sucesso!"
+        return "Cliente não encontrado."
