@@ -1,16 +1,14 @@
-
 from isakarmacia.controller.clienteController import ClienteController
 
 def menu_cadastro_cliente():
     cliente_controller = ClienteController()
-
 
     print("Bem-Vindo a Área de usuário!")
     print("O que você deseja fazer?")
     print()
 
     while True:
-        print("\n1. Cadastrar Cliente\n2. Listar Clientes\n3. Buscar Cliente\n4. Sair")
+        print("\n1. Cadastrar Cliente\n2. Listar Clientes\n3. Buscar Cliente\n4. Deletar Cliente\n5. Sair")
         opcao = input("Escolha uma opção: ")
 
         if opcao == "1":
@@ -30,6 +28,10 @@ def menu_cadastro_cliente():
             print(cliente_controller.buscar_cliente(cpf))
 
         elif opcao == "4":
+            cpf = input("Digite o CPF do cliente a ser deletado: ")
+            print(cliente_controller.deletar_cliente(cpf))
+
+        elif opcao == "5":
             print("Saindo...")
             break
 
