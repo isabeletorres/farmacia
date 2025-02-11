@@ -1,7 +1,13 @@
-from controller.clienteController import ClienteController
+
+from isakarmacia.controller.clienteController import ClienteController
 
 def menu_cadastro_cliente():
     cliente_controller = ClienteController()
+
+
+    print("Bem-Vindo a Área de usuário!")
+    print("O que você deseja fazer?")
+    print()
 
     while True:
         print("\n1. Cadastrar Cliente\n2. Listar Clientes\n3. Buscar Cliente\n4. Sair")
