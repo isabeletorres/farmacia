@@ -1,6 +1,6 @@
 import json
 import os
-from models.clienteModel import Client
+from isakarmacia.models.clienteModel import Client
 
 class ClienteController:
     def __init__(self, arquivo="clientes.json"):
