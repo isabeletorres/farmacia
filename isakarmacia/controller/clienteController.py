@@ -1,6 +1,8 @@
 import json
 import os
 from isakarmacia.models.clienteModel import Client
+import re
+
 
 class ClienteController:
     def __init__(self, arquivo="clientes.json"):
@@ -28,10 +30,14 @@ class ClienteController:
         return [cliente.exibir_dados() for cliente in self.clientes]
 
     def buscar_cliente(self, cpf):
+        cpf = self.normalizar_cpf(cpf)
         for cliente in self.clientes:
-            if cliente.cpf == cpf:
+            if self.normalizar_cpf(cliente.cpf) == cpf:
                 return cliente.exibir_dados()
         return "Cliente não encontrado."
+
+    def normalizar_cpf(self, cpf):
+        return re.sub(r'\D', '', cpf)
 
     def deletar_cliente(self, cpf):
         for cliente in self.clientes:
@@ -40,3 +46,5 @@ class ClienteController:
                 self.salvar_dados()
                 return f"Cliente com CPF {cpf} deletado com sucesso!"
         return "Cliente não encontrado."
+
+
